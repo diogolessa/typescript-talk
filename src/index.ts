@@ -153,4 +153,29 @@ console.log(makeJuice2('Orange').length)
 console.log(makeJuice2(['Apple', 'Lemon', 'Melon']).length)
 // console.log(makeJuice2({ name: 'Lemon', price: '$4.5'}).length)
 // console.log(makeJuice2<number[]>(['Apple', 'Lemon', 'Melon']).length)
+
+abstract class Sleep<T, Y> {
+  constructor(public v1: T, public v2: T) {}
+  abstract result(): Y
+}
+
+class SleepTime extends Sleep<number, number> {
+  result(): number {
+    return this.v2 - this.v1
+  }
+}
+console.log(new SleepTime(2, 10).result())
+
+class SleepQuality extends Sleep<number, string> {
+  result(): string {
+    const result = this.v2 - this.v1
+    if (result >= 8) {
+      return 'Got a great night!'
+    }
+    return 'You should be tired, huh?'
+  }
+}
+console.log(new SleepQuality(2, 10).result())
+console.log(new SleepQuality(2, 5).result())
+// console.log(new SleepQuality(2, '9').result())
 // -------------------------------
