@@ -1,0 +1,5 @@
+node_modules
+src/Cart
+src/CartItem
+src/Product
+src/*.jpg
